@@ -65,7 +65,7 @@ def get_movie_by_id(movie_id):
     if not movie:
         return json_error("couldn't find %s" % movie_id)
 
-    json.dumps({ 'movie': movie }), 200
+    return json.dumps({ 'movie': movie }), 200
 
 def json_error(msg):
     return json.dumps({'error': msg}), 400
