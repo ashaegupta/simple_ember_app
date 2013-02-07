@@ -27,10 +27,14 @@
 
 	            <ul>
 	            	{{#each movie in content}}
-	            		<li>{{movie.name}}  {{movie.rating}}</li>
+	            		<li>{{movie.name}} {{movie.rating}}</li>
 	            	{{/each}}
 	            </ul>
+	        </script>
 
+	        <script type="text/x-handlebars" data-template-name="movie">
+	            <h2>{{name}}</h2>
+	            <div>{{rating}}</div>
 	        </script>
 		{% endraw %}
 	</body>

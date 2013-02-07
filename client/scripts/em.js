@@ -26,6 +26,7 @@ App.Movie = DS.Model.extend({
 
 App.Router.map(function() {
 	this.route('movies');
+	this.route('movie', { path: '/movies/:movie_id' });
 });
 
 App.MoviesController = Ember.ArrayController.extend({});
@@ -33,6 +34,12 @@ App.MoviesController = Ember.ArrayController.extend({});
 App.MoviesRoute = Ember.Route.extend({
   model: function() {
   	return App.Movie.find();  // Return all movies when you go to the movies route
+  }
+});
+
+App.MovieRoute = Ember.Route.extend({
+  model: function(params) {
+  	return App.Movie.find(params.movie_id);  // Return the specific movie
   }
 });
 
