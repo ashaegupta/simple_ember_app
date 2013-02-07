@@ -12,19 +12,19 @@
 	            <div>
 	                {{outlet}}
 	            </div>
-	            <footer>
-	                Made using ember.
+	            <footer style="margin-top:100px;font-size:12px;">
+	                Made using ember.js :)
 	            </footer>
 	        </script>
 
 	        <script type="text/x-handlebars" data-template-name="movies">
 	        	{{outlet createMovie}}	
-	            <h2>
+	            <h3>
 	                List of movies
-	            </h2>
+	            </h3>
 	            <ul>
 	            	{{#each movie in content}}
-	            		<li>{{movie.name}} {{movie.rating}} / 5</li>
+	            		<li>{{#linkTo "movie" movie}}{{movie.name}} {{movie.rating}} / 5 {{/linkTo}}</li>
 	            	{{/each}}
 	            </ul>
 	        </script>
@@ -42,8 +42,10 @@
 	        </script>
 
 	        <script type="text/x-handlebars" data-template-name="movie">
-	            <h2>{{name}}</h2>
-	            <div>{{rating}}</div>
+	        	<div>{{#linkTo "movies"}} All movies {{/linkTo}}</div>
+	        	</br>
+	            <div>{{name}}</div>
+	            <div>Rating: {{rating}} / 5 </div>
 	        </script>
 		{% endraw %}
 	</body>
