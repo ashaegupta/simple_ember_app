@@ -1,5 +1,17 @@
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css">
+		<style>
+		  ul.movies {
+		  	list-style-type: none;
+		  }
+		  ul.movies li {
+		  	max-width: 300px;
+		  }
+	      .highlight {
+	        background-color: paleturquoise;
+	      }
+		</style>
 		<script src="/client/scripts/external/jquery-1.9.1.min.js" type="text/javascript"></script>
         <script src="/client/scripts/external/handlebars.js" type="text/javascript"></script>
         <script src="/client/scripts/external/ember-1.0.0-pre.4.min.js" type="text/javascript"></script>
@@ -22,9 +34,9 @@
 	            <h3>
 	                List of movies
 	            </h3>
-	            <ul>
+	            <ul class="movies">
 	            	{{#each movie in content}}
-	            		<li>{{#linkTo "movie" movie}}{{movie.name}} {{movie.rating}} / 5 {{/linkTo}}</li>
+	            		<li {{bindAttr class="movie.mustSee:highlight"}}>{{#linkTo "movie" movie}}{{movie.name}} {{movie.rating}} / 5 {{/linkTo}}</li>
 	            	{{/each}}
 	            </ul>
 	        </script>
