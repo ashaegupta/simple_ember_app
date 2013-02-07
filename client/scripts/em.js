@@ -1,3 +1,5 @@
+// SETUP
+
 window.App = Ember.Application.create();
 
 // Use the history api so we don't need to include # in urls
@@ -14,22 +16,13 @@ App.Store = DS.Store.extend({
     })    
 });
 
-App.Movie = DS.Model.extend({
-	name: DS.attr('string'),
-	rating: DS.attr('string'),
 
-	mustSee: function() {
-		return (Number(this.get('rating')) == 5);
-	}.property('rating')
-
-});
+// ROUTER
 
 App.Router.map(function() {
 	this.route('movies');
 	this.route('movie', { path: '/movies/:movie_id' });
 });
-
-App.MoviesController = Ember.ArrayController.extend({});
 
 App.MoviesRoute = Ember.Route.extend({
   model: function() {
@@ -46,6 +39,24 @@ App.MovieRoute = Ember.Route.extend({
   	return App.Movie.find(params.movie_id);  // Return the specific movie
   }
 });
+
+
+// MODEL
+
+App.Movie = DS.Model.extend({
+	name: DS.attr('string'),
+	rating: DS.attr('string'),
+
+	mustSee: function() {
+		return (Number(this.get('rating')) == 5);
+	}.property('rating')
+
+});
+
+
+// CONTROLLERS
+
+App.MoviesController = Ember.ArrayController.extend({});
 
 App.CreateMovieController = Ember.Controller.extend({
 	submit: function(){
