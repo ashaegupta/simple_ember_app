@@ -16,10 +16,10 @@ App.Store = DS.Store.extend({
 
 App.Movie = DS.Model.extend({
 	name: DS.attr('string'),
-	rating: DS.attr('number'),
+	rating: DS.attr('string'),
 
 	mustSee: function() {
-		return (rating == 5);
+		return (Number(this.get('rating')) == 5);
 	}.property('rating')
 
 });
@@ -45,4 +45,11 @@ App.MovieRoute = Ember.Route.extend({
   model: function(params) {
   	return App.Movie.find(params.movie_id);  // Return the specific movie
   }
+});
+
+App.CreateMovieController = Ember.Controller.extend({
+	submit: function(){
+		var movie = App.Movie.createRecord(this);
+    movie.get('transaction').commit();
+	}
 });

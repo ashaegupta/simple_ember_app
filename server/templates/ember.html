@@ -24,7 +24,7 @@
 	            </h2>
 	            <ul>
 	            	{{#each movie in content}}
-	            		<li>{{movie.name}} {{movie.rating}}</li>
+	            		<li>{{movie.name}} {{movie.rating}} / 5</li>
 	            	{{/each}}
 	            </ul>
 	        </script>
@@ -37,7 +37,7 @@
                 {{view Ember.TextField 
                         valueBinding="rating" 
                         placeholder="Rating out of 5"}}
-                        
+
                 <input type="submit" {{action submit}}/>
 	        </script>
 
