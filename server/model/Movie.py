@@ -24,7 +24,7 @@ def find_by_id(movie_id):
     spec = {'_id': ObjectId(movie_id)}
     return db.find_one(spec)
 
-def create_movie(movie):
+def create(movie):
     movie_id = db.insert(movie)
     if movie_id:
         return str(movie_id)

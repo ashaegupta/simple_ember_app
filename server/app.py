@@ -48,16 +48,13 @@ def post_movie():
     data = json.loads(request.data)
     movie = data.get('movie')
 
-    name, rating = movie.get("name"), movie.get("rating")
-    if not (name and rating):
-        return json_error("please pass in both a :name and a :rating")
-
-    _id = Movie.create(name, rating)
+    _id = Movie.create(movie)
     if not _id:
         return json_error("couldn't add movie")
+    movie['id'] = _id
 
     return json.dumps({
-        'movie': { 'id': _id }
+        'movie': movie
     }), 200
 
 @app.route("/api/movies/<movie_id>", methods=["GET"])
