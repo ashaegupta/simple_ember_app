@@ -9,9 +9,6 @@
 	<body>
 		{% raw %}
 			<script type="text/x-handlebars" data-template-name="application">
-	            <h1>
-	                Hello Hackdays!
-	            </h1>
 	            <div>
 	                {{outlet}}
 	            </div>
@@ -21,15 +18,19 @@
 	        </script>
 
 	        <script type="text/x-handlebars" data-template-name="movies">
+	        	{{outlet createMovie}}	
 	            <h2>
 	                List of movies
 	            </h2>
-
 	            <ul>
 	            	{{#each movie in content}}
 	            		<li>{{movie.name}} {{movie.rating}}</li>
 	            	{{/each}}
 	            </ul>
+	        </script>
+
+	        <script type="text/x-handlebars" data-template-name="createMovie">
+	        	<h3>Add a new movie</h3>
 	        </script>
 
 	        <script type="text/x-handlebars" data-template-name="movie">

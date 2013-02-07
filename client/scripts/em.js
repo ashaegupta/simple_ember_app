@@ -34,6 +34,10 @@ App.MoviesController = Ember.ArrayController.extend({});
 App.MoviesRoute = Ember.Route.extend({
   model: function() {
   	return App.Movie.find();  // Return all movies when you go to the movies route
+  },
+  renderTemplate: function() {
+	  this.render('movies');
+	  this.render('createMovie', {into: 'movies', outlet:'createMovie'});
   }
 });
 
@@ -42,4 +46,3 @@ App.MovieRoute = Ember.Route.extend({
   	return App.Movie.find(params.movie_id);  // Return the specific movie
   }
 });
-
