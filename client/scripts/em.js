@@ -14,6 +14,16 @@ App.Store = DS.Store.extend({
     })    
 });
 
+App.Movie = DS.Model.extend({
+	name: DS.attr('string'),
+	rating: DS.attr('number'),
+
+	mustSee: function() {
+		return (rating == 5)
+	}.property('rating')
+
+});
+
 App.Router.map(function() {
 	this.route('movies');
 });
