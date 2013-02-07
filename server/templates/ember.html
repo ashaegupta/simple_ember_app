@@ -24,6 +24,13 @@
 	            <h2>
 	                List of movies
 	            </h2>
+
+	            <ul>
+	            	{{#each movie in content}}
+	            		<li>{{movie.name}}  {{movie.rating}}</li>
+	            	{{/each}}
+	            </ul>
+
 	        </script>
 		{% endraw %}
 	</body>

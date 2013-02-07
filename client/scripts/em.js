@@ -19,7 +19,7 @@ App.Movie = DS.Model.extend({
 	rating: DS.attr('number'),
 
 	mustSee: function() {
-		return (rating == 5)
+		return (rating == 5);
 	}.property('rating')
 
 });
@@ -27,3 +27,12 @@ App.Movie = DS.Model.extend({
 App.Router.map(function() {
 	this.route('movies');
 });
+
+App.MoviesController = Ember.ArrayController.extend({});
+
+App.MoviesRoute = Ember.Route.extend({
+  model: function() {
+  	return App.Movie.find();  // Return all movies when you go to the movies route
+  }
+});
+
