@@ -30,7 +30,15 @@
 	        </script>
 
 	        <script type="text/x-handlebars" data-template-name="createMovie">
-	        	<h3>Add a new movie</h3>
+                {{view Ember.TextField
+                        valueBinding="name"
+                        placeholder="Movie name"}}
+
+                {{view Ember.TextField 
+                        valueBinding="rating" 
+                        placeholder="Rating out of 5"}}
+                        
+                <input type="submit" {{action submit}}/>
 	        </script>
 
 	        <script type="text/x-handlebars" data-template-name="movie">
