@@ -19,6 +19,7 @@ I've made each commit a small step, so you can follow along.
 This assumes you already have a working API, if you don't you should still get a lot out of checking through the code.
 
 
-# Starting with ember
-# Getting started with ember
-# Ember.js is your friend, I swear
+---
+Starting with ember
+Getting started with ember
+Ember.js is your friend, I swear
